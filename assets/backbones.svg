@@ -1001,4 +1001,9 @@
 <use data-text="." xlink:href="#font_6_5" transform="matrix(7,0,0,-7,504.8462,60.560274)" fill="#277355"/>
 <use data-text="0" xlink:href="#font_6_6" transform="matrix(7,0,0,-7,506.5962,60.560274)" fill="#277355"/>
 </g>
+<g id="backbone-panel-titles" font-family="Times New Roman, Times, serif" font-size="8.5" font-weight="bold" fill="#202938">
+<text x="62.5" y="12">DiT-L/2</text>
+<text x="192.5" y="12">DiG-L/2</text>
+<text x="300" y="12">SiT-XL/2 (512 × 512)</text>
+</g>
 </svg>
