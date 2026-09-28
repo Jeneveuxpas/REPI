@@ -4,7 +4,7 @@
 
 [Project Page](https://jeneveuxpas.github.io/REPI/)
 
-> **Code coming soon.** This repository is under preparation. The implementation has not been released yet.
+> **Code coming soon.**
 
 ![REPI teaser: convergence across SiT model scales](assets/teaser.png)
 
