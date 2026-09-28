@@ -173,7 +173,7 @@ h3 { color: var(--ink); font-size: 21px; font-weight: 600; line-height: 1.4; let
 #generality { background: var(--soft); border-block: 1px solid #e7ecf3; }
 #generality .section-heading { margin-bottom: 38px; }
 #analysis .section-heading > p { max-width: 100%; }
-#analysis .paper-figure { max-width: 1040px; margin-inline: auto; }
+#analysis .paper-figure { width: 80%; max-width: 830px; margin-inline: auto; }
 .resources-section { background: #f6f8fb; border-top: 1px solid #e3e9f2; }
 .resources-section > .section { padding-block: 46px; }
 .resources-section h2 { font-size: 28px; margin-bottom: 15px; }
@@ -288,4 +288,8 @@ h3 { color: var(--ink); font-size: 21px; font-weight: 600; line-height: 1.4; let
 @media (max-width: 800px) {
   .highlights { grid-template-columns: 1fr; gap: 22px; }
   .highlights h2 { font-size: 24px; margin-bottom: 10px; }
+}
+
+@media (max-width: 640px) {
+  #analysis .paper-figure { width: 100%; }
 }
