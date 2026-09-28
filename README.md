@@ -18,9 +18,12 @@ Recent representation alignment (REPA) methods accelerate diffusion transformer 
 - **160K vs. 7M.** REPI + REPA reaches an FID of 8.22 in just 160K training steps, matching vanilla SiT trained for 7M steps (FID 8.30), a speedup of over 43.5×.
 - **Original Backbone.** The encoder and projection layers are used only during training and are fully discarded at inference, leaving the original backbone unchanged and incurring zero additional inference cost.
 
-## Method
+<p align="center">
+  <img src="assets/scaffold.svg" alt="REPI scaffold stage: projected encoder keys and values replace native keys and values during early training" width="47%">
+  <img src="assets/internalization.svg" alt="REPI internalization stage: native keys and values return and match projected encoder targets" width="47%">
+</p>
 
-REPI follows two training stages: a temporary representation scaffold followed by internalization.
+## Method
 
 ### 1. Scaffold: early training
 
