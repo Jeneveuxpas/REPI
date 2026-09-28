@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="REPI: Representation Injection for Diffusion Transformers.">
+  <meta name="theme-color" content="#315fa9">
+  <meta property="og:title" content="REPI · Scaffold Then Internalize">
+  <meta property="og:description" content="Scaffold Then Internalize: Representation Injection for Diffusion Transformers.">
+  <meta property="og:type" content="website">
+  <!-- Set og:url and an absolute og:image URL after choosing the public repository. -->
+  <title>REPI | Scaffold Then Internalize</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css?v=12">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header"><nav class="nav wrap" aria-label="Page sections"><a class="brand" href="#top">REPI</a><div class="nav-links"><a href="#overview">Abstract</a><a href="#method">Method</a><a href="#results">Results</a><a href="#bibtex">BibTeX</a></div></nav></header>
+<main id="main">
+  <section class="hero wrap" id="top" aria-labelledby="title">
+    <h1 id="title">Scaffold Then Internalize:<br>Representation Injection for Diffusion Transformers</h1>
+    <ul class="authors" aria-label="Authors in paper order">
+      <li>Han Fu<sup>1,2</sup></li><li>Jiacheng Chen<sup>1</sup></li><li>Baoquan Zhao<sup>1</sup></li><li>Weidong Chen<sup>2</sup></li><li>Wei Liu<sup>2</sup></li><li>Li Qing<sup>3</sup></li><li>Xudong Mao<sup>1</sup></li>
+    </ul>
+    <p class="affiliations"><span><sup>1</sup> Sun Yat-sen University</span><span><sup>2</sup> Video Rebirth</span><span><sup>3</sup> The Hong Kong Polytechnic University</span></p>
+    <!-- No contribution markers or personal homepage URLs were supplied. -->
+    <div class="resource-buttons" aria-label="Project links">
+      <span class="button unavailable" aria-disabled="true"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M6 3h8l4 4v14H6z M14 3v5h4 M9 12h6 M9 16h6"/></svg>Paper <small>coming soon</small></span>
+      <span class="button unavailable" aria-disabled="true"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="m8 6-6 6 6 6 M16 6l6 6-6 6 M14 3l-4 18"/></svg>Code <small>coming soon</small></span>
+    </div>
+  </section>
+
+  <figure class="showcase wrap-wide">
+    <div class="sample-grid" aria-label="Fourteen generated images from the paper">
+      <div class="sample" role="img" aria-label="Generated brown dog" style="--x:0%;--y:0%"></div>
+      <div class="sample" role="img" aria-label="Generated mountain valley" style="--x:33.3333%;--y:0%"></div>
+      <div class="sample" role="img" aria-label="Generated ferret" style="--x:66.6667%;--y:0%"></div>
+      <div class="sample" role="img" aria-label="Generated bird on a branch" style="--x:100%;--y:0%"></div>
+      <div class="sample" role="img" aria-label="Generated cup of coffee" style="--x:0%;--y:33.3333%"></div>
+      <div class="sample" role="img" aria-label="Generated wooden cabinet" style="--x:33.3333%;--y:33.3333%"></div>
+      <div class="sample" role="img" aria-label="Generated fire engine" style="--x:66.6667%;--y:33.3333%"></div>
+      <div class="sample" role="img" aria-label="Generated black terrier" style="--x:100%;--y:33.3333%"></div>
+      <div class="sample" role="img" aria-label="Generated jellyfish" style="--x:0%;--y:66.6667%"></div>
+      <div class="sample" role="img" aria-label="Generated partridge" style="--x:33.3333%;--y:66.6667%"></div>
+      <div class="sample" role="img" aria-label="Generated spotted salamander" style="--x:66.6667%;--y:66.6667%"></div>
+      <div class="sample" role="img" aria-label="Generated wallaby" style="--x:100%;--y:66.6667%"></div>
+      <div class="sample" role="img" aria-label="Generated water tower" style="--x:0%;--y:100%"></div>
+      <div class="sample" role="img" aria-label="Generated white wolf" style="--x:33.3333%;--y:100%"></div>
+    </div>
+    <figcaption>Samples from REPI + REPA, SiT-XL/2 at 512 × 512, 400K training steps, CFG = 4.0.</figcaption>
+  </figure>
+
+
+
+  <section class="highlights wrap" aria-label="Key results">
+    <article><h2>Complementary to REPA</h2><p>At 100K steps, combining REPI with REPA achieves an FID of 11.78, outperforming REPI (14.51) and REPA (19.40) alone.</p></article>
+    <article><h2>160K vs. 7M</h2><p>REPI + REPA reaches an FID of 8.22 in just 160K training steps, matching vanilla SiT trained for 7M steps (FID 8.30), a speedup of over 43.5×.</p></article>
+    <article><h2>Original Backbone</h2><p>The encoder and projection layers are used only during training and are fully discarded at inference, leaving the original backbone unchanged and incurring zero additional inference cost.</p></article>
+  </section>
+
+  <section class="abstract-band" id="overview"><div class="section wrap overview">
+    <div class="section-heading"><h2>Abstract</h2></div>
+    <div class="prose"><p>Recent representation alignment (REPA) methods accelerate diffusion transformer training by aligning projections of the transformer's hidden states with representations from pretrained visual encoders. In this work, we explore a reverse and complementary direction to REPA: rather than projecting diffusion representations into the encoder's space, we inject encoder representations into the diffusion transformer, allowing them to actively participate in the denoising process. To this end, we introduce <em>REPresentation Injection</em> (REPI), a training framework based on a scaffold-to-internalization strategy, in which projected encoder representations initially serve as a temporary scaffold and are then progressively internalized by the diffusion transformer. REPI not only outperforms REPA across a wide range of backbones but is also highly complementary to it, and combining the two yields substantial gains over either alone. Notably, with only 160K training steps, REPI + REPA surpasses vanilla SiT trained for 7M steps, a speedup of over 43.5×. Code is provided in the supplementary material and will be made publicly available.</p></div>
+  </div></section>
+
+  <section class="tinted" id="method">
+    <div class="section wrap">
+      <div class="section-heading centered"><h2>Method Overview</h2></div>
+      <div class="method-grid">
+        <article class="method-card"><div class="step-heading"><span class="step">01</span><div><p class="kicker">Early training</p><h3>Scaffold</h3></div></div><a class="figure-link" href="assets/scaffold.svg" target="_blank" rel="noopener" aria-label="Open full scaffold diagram"><img src="assets/scaffold.svg" width="391" height="357" loading="lazy" alt="Frozen encoder keys and values are projected into a diffusion transformer attention layer; native queries and the residual path remain."></a><p>Projected encoder keys and values temporarily replace the model’s native K/V. Native queries preserve the connection to the noisy input.</p></article>
+        <article class="method-card"><div class="step-heading"><span class="step">02</span><div><p class="kicker">Subsequent training</p><h3>Internalization</h3></div></div><a class="figure-link" href="assets/internalization.svg" target="_blank" rel="noopener" aria-label="Open full internalization diagram"><img src="assets/internalization.svg" width="386" height="357" loading="lazy" alt="Native keys and values are restored and aligned with the projected encoder representations using an internalization objective."></a><p>The model resumes computing its own K/V. An internalization objective aligns these native representations with the projected encoder targets.</p></article>
+      </div>
+      <div class="inference"><span class="step">03</span><div><h3>Inference</h3><p>At inference, remove the visual encoder and projection layers. Sample with the original diffusion backbone.</p></div><span class="inference-label">Inference</span></div>
+    </div>
+  </section>
+
+  <section class="section wrap" id="results">
+    <div class="section-heading"><h2>Quantitative Results</h2><p>REPI improves convergence across SiT model scales. Combining it with REPA yields further gains.</p></div>
+    <figure class="paper-figure"><a href="assets/convergence.svg" target="_blank" rel="noopener"><img src="assets/convergence.svg" width="1544" height="508" loading="lazy" alt="FID curves for SiT-B, SiT-L, and SiT-XL at 100K, 200K, and 400K steps; REPI improves upon REPA and their combination improves further."></a><figcaption>ImageNet 256 × 256, without CFG. On SiT-XL/2, REPI + REPA at 200K steps outperforms REPA at 400K steps.</figcaption></figure>
+    <div class="subsection"><h3>Qualitative Results</h3><p>iREPA and REPI use the same initial noise and sampler, without classifier-free guidance.</p><figure class="paper-figure"><a href="assets/comparison.svg" target="_blank" rel="noopener"><img src="assets/comparison.svg" width="1536" height="457" loading="lazy" alt="Three groups of generated samples at 100K, 200K, and 400K training steps. iREPA is the top row and REPI is the bottom row."></a><figcaption>SiT-XL/2. Top: iREPA. Bottom: REPI. Each group tracks the same initial noise across 100K, 200K, and 400K training steps.</figcaption></figure></div>
+  </section>
+
+  <section class="tinted" id="generality"><div class="section wrap">
+    <div class="section-heading"><h2>Generality</h2><p>Across visual encoders, diffusion backbones, and image resolutions.</p></div>
+    <div class="subsection first"><h3>Visual Encoders</h3><p>REPI outperforms REPA across all ten evaluated encoders, including settings where REPA underperforms vanilla SiT. Combining the methods gives further gains for most encoders.</p><figure class="paper-figure"><a href="assets/encoders.svg" target="_blank" rel="noopener"><img src="assets/encoders.svg" width="1311" height="488" loading="lazy" alt="FID comparison across ten visual encoders, from DINOv2 through CLIP, WebSSL, I-JEPA, DeiT-III, MAE, and MoCoV3."></a><figcaption>SiT-XL/2 · 100K steps · ImageNet 256 × 256 · without CFG.</figcaption></figure></div>
+    <div class="subsection"><h3>Diffusion Backbones and Resolution</h3><figure class="paper-figure"><a href="assets/backbones.svg?v=2" target="_blank" rel="noopener"><img src="assets/backbones.svg?v=2" width="1185" height="441" loading="lazy" alt="Results on DiT-L/2, DiG-L/2, and SiT-XL/2 at 512 resolution, from left to right."></a><figcaption>From left to right: DiT-L/2, DiG-L/2, and SiT-XL/2 at 512 × 512. REPI improves upon REPA across these settings.</figcaption></figure></div>
+  </div></section>
+
+  <section class="section wrap" id="analysis"><div class="section-heading"><h2>Ablation Study</h2><p>The temporary scaffold improves training even after removal. Adding the internalization objective further reduces FID.</p></div><figure class="paper-figure"><a href="assets/components.svg" target="_blank" rel="noopener"><img src="assets/components.svg" width="1200" height="480" loading="lazy" alt="Component ablation: SiT-XL reaches FID 17.20, scaffold alone reaches 9.49, and scaffold plus internalization reaches 7.21 at 400K steps. With REPA, the corresponding values are 7.90, 6.54, and 6.33."></a><figcaption>SiT-XL/2 · ImageNet 256 × 256 · without CFG. Left: without REPA. Right: with REPA.</figcaption></figure>
+  </section>
+
+  <section class="resources-section" id="bibtex"><div class="wrap section">
+    <h2>BibTeX</h2>
+    <pre class="bibtex"><code>@misc{fu2026scaffold,
+  title  = {Scaffold Then Internalize: Representation Injection for Diffusion Transformers},
+  author = {Han Fu and Jiacheng Chen and Baoquan Zhao and Weidong Chen and Wei Liu and Li Qing and Xudong Mao},
+  year   = {2026}
+}</code></pre>
+  </div></section>
+</main>
+<footer class="wrap footer"><p>This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template">Academic Project Page Template</a>, adopted from the <a href="https://nerfies.github.io/">Nerfies</a> project page.</p></footer>
+</body>
+</html>
