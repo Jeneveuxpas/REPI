@@ -1,6 +1,6 @@
 # Scaffold Then Internalize: Representation Injection for Diffusion Transformers
 
-**Han Fu, Jiacheng Chen, Baoquan Zhao, Weidong Chen, Wei Liu, Li Qing, Xudong Mao**
+**Han Fu, Jiacheng Chen, Baoquan Zhao, Weidong Chen, Wei Liu, Qing Li, Xudong Mao**
 
 [Project Page](https://jeneveuxpas.github.io/REPI/)
 
@@ -43,7 +43,7 @@ At inference, the visual encoder and projection layers are removed. Sampling use
 ```bibtex
 @misc{fu2026scaffold,
   title  = {Scaffold Then Internalize: Representation Injection for Diffusion Transformers},
-  author = {Han Fu and Jiacheng Chen and Baoquan Zhao and Weidong Chen and Wei Liu and Li Qing and Xudong Mao},
+  author = {Han Fu and Jiacheng Chen and Baoquan Zhao and Weidong Chen and Wei Liu and Qing Li and Xudong Mao},
   year   = {2026}
 }
 ```
