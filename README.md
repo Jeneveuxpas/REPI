@@ -24,13 +24,9 @@ REPI follows two training stages: a temporary representation scaffold followed b
 
 Projected encoder keys and values temporarily replace the model's native K/V. Native queries preserve the connection to the noisy input.
 
-![Scaffold stage](assets/scaffold.png)
-
 ### 2. Internalization: subsequent training
 
 The model resumes computing its own K/V. An internalization objective aligns these native representations with the projected encoder targets.
-
-![Internalization stage](assets/internalization.png)
 
 ### 3. Inference
 
