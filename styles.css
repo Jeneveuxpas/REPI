@@ -166,6 +166,7 @@ h3 { color: var(--ink); font-size: 21px; font-weight: 600; line-height: 1.4; let
 .paper-figure > a { display: block; padding: 18px 12px; background: white; border: 1px solid #e5eaf1; border-radius: 8px; }
 .paper-figure img { max-height: 680px; object-fit: contain; }
 .paper-figure figcaption { padding-inline: 3px; }
+.backbones-figure > a { width: 88%; margin-inline: auto; }
 .figure-note { color: var(--accent); }
 .subsection { margin-top: 48px; padding-top: 35px; border-top: 1px solid #e5eaf1; }
 .subsection > p { margin-top: 12px; font-size: 15px; color: var(--muted); }
@@ -292,4 +293,5 @@ h3 { color: var(--ink); font-size: 21px; font-weight: 600; line-height: 1.4; let
 
 @media (max-width: 640px) {
   #analysis .paper-figure { width: 100%; }
+  .backbones-figure > a { width: 100%; }
 }
