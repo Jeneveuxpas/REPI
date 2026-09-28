@@ -18,24 +18,30 @@ Recent representation alignment (REPA) methods accelerate diffusion transformer 
 - **160K vs. 7M.** REPI + REPA reaches an FID of 8.22 in just 160K training steps, matching vanilla SiT trained for 7M steps (FID 8.30), a speedup of over 43.5×.
 - **Original Backbone.** The encoder and projection layers are used only during training and are fully discarded at inference, leaving the original backbone unchanged and incurring zero additional inference cost.
 
-<p align="center">
-  <img src="assets/scaffold.svg" alt="REPI scaffold stage: projected encoder keys and values replace native keys and values during early training" width="47%">
-  <img src="assets/internalization.svg" alt="REPI internalization stage: native keys and values return and match projected encoder targets" width="47%">
-</p>
+## Method Overview
 
-## Method
+<table>
+  <tr>
+    <td width="50%" valign="top">
+      <p><sub>01 · EARLY TRAINING</sub></p>
+      <h3>Scaffold</h3>
+      <p><a href="assets/scaffold.svg"><img src="assets/scaffold.svg" alt="Scaffold stage: projected encoder keys and values temporarily replace the diffusion transformer's native keys and values" width="100%"></a></p>
+      <p>Projected encoder keys and values temporarily replace the model's native K/V, while the model's native queries preserve conditioning on the noisy input.</p>
+    </td>
+    <td width="50%" valign="top">
+      <p><sub>02 · SUBSEQUENT TRAINING</sub></p>
+      <h3>Internalization</h3>
+      <p><a href="assets/internalization.svg"><img src="assets/internalization.svg" alt="Internalization stage: the model resumes native keys and values guided by the internalization objective" width="100%"></a></p>
+      <p>The model resumes computing its own K/V, while an internalization objective encourages the native representations to match the projected encoder targets.</p>
+    </td>
+  </tr>
+</table>
 
-### 1. Scaffold: early training
-
-Projected encoder keys and values temporarily replace the model's native K/V. Native queries preserve the connection to the noisy input.
-
-### 2. Internalization: subsequent training
-
-The model resumes computing its own K/V. An internalization objective aligns these native representations with the projected encoder targets.
-
-### 3. Inference
-
-At inference, the visual encoder and projection layers are removed. Sampling uses the original diffusion backbone, with no additional inference cost.
+<table>
+  <tr>
+    <td><strong>03 · Inference</strong><br>The visual encoder and projection layers are removed. Sampling is performed using only the original diffusion backbone.</td>
+  </tr>
+</table>
 
 ## Repository Status
 
