@@ -2,7 +2,7 @@
 
 **Han Fu, Jiacheng Chen, Baoquan Zhao, Weidong Chen, Wei Liu, Li Qing, Xudong Mao**
 
-[Project Page](https://jeneveuxpas.github.io/repi/)
+[Project Page](https://jeneveuxpas.github.io/REPI/)
 
 > **Code coming soon.** This repository is under preparation. The implementation has not been released yet.
 
