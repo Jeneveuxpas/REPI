@@ -77,7 +77,7 @@
   </section>
 
   <section class="section wrap" id="results">
-    <div class="section-heading"><h2>Quantitative Results</h2><p>REPI consistently accelerates convergence across SiT model scales, while combining REPI with REPA yields further improvements.</p></div>
+    <div class="section-heading"><h2>Quantitative Results</h2><p>REPI not only outperforms REPA across a wide range of backbones but is also highly complementary to it, and combining the two yields substantial gains over either alone.</p></div>
     <figure class="paper-figure"><a href="assets/convergence.svg" target="_blank" rel="noopener"><img src="assets/convergence.svg" width="1544" height="508" loading="lazy" alt="FID curves for SiT-B, SiT-L, and SiT-XL at 100K, 200K, and 400K steps; REPI improves upon REPA and their combination improves further."></a><figcaption><strong>ImageNet 256 × 256 · without CFG.</strong><br>On SiT-XL/2, REPI + REPA trained for 200K steps already outperforms REPA trained for 400K steps.</figcaption></figure>
     <div class="subsection"><h3>Qualitative Results</h3><p>iREPA and REPI are evaluated using the same initial noise and sampler, without classifier-free guidance.</p><figure class="paper-figure"><a href="assets/comparison.svg" target="_blank" rel="noopener"><img src="assets/comparison.svg" width="1536" height="457" loading="lazy" alt="Three groups of generated samples at 100K, 200K, and 400K training steps. iREPA is the top row and REPI is the bottom row."></a><figcaption><strong>SiT-XL/2.</strong> Top: iREPA. Bottom: REPI. Each column uses the same initial noise and shows results after 100K, 200K, and 400K training steps.</figcaption></figure></div>
   </section>
