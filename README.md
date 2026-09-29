@@ -2,7 +2,7 @@
 
 **Han Fu, Jiacheng Chen, Baoquan Zhao, Weidong Chen, Wei Liu, Qing Li, Xudong Mao**
 
-[Project Page](https://jeneveuxpas.github.io/REPI/)
+[Paper](https://arxiv.org/abs/2609.35292) · [Project Page](https://jeneveuxpas.github.io/REPI/)
 
 > **Code coming soon.**
 
@@ -10,7 +10,7 @@
 
 ## Overview
 
-Recent representation alignment (REPA) methods accelerate diffusion transformer training by aligning projections of the transformer's hidden states with representations from pretrained visual encoders. In this work, we explore a reverse and complementary direction to REPA: rather than projecting diffusion representations into the encoder's space, we inject encoder representations into the diffusion transformer, allowing them to actively participate in the denoising process. To this end, we introduce REPresentation Injection (REPI), a training framework based on a scaffold-to-internalization strategy, in which projected encoder representations initially serve as a temporary scaffold and are then progressively internalized by the diffusion transformer. REPI not only outperforms REPA across a wide range of backbones but is also highly complementary to it, and combining the two yields substantial gains over either alone. Notably, with only 160K training steps, REPI + REPA surpasses vanilla SiT trained for 7M steps, a speedup of over 43.5×.
+Recent representation alignment (REPA) methods accelerate diffusion transformer training by aligning projections of the transformer's hidden states with representations from pretrained visual encoders. In this work, we explore a reverse and complementary direction to REPA: rather than projecting diffusion representations into the encoder's space, we inject encoder representations into the diffusion transformer, allowing them to actively participate in the denoising process. To this end, we introduce REPresentation Injection (REPI), a training framework based on a scaffold-to-internalization strategy, in which projected encoder representations initially serve as a temporary scaffold and are then progressively internalized by the diffusion transformer. REPI outperforms REPA across a wide range of backbones and is highly complementary to it: combining the two yields substantial gains over either alone. Notably, with only 160K training steps, REPI + REPA matches vanilla SiT trained for 7M steps, a speedup of over 43.5×.
 
 ## Highlights
 
@@ -53,6 +53,10 @@ Recent representation alignment (REPA) methods accelerate diffusion transformer 
 @misc{fu2026scaffold,
   title  = {Scaffold Then Internalize: Representation Injection for Diffusion Transformers},
   author = {Han Fu and Jiacheng Chen and Baoquan Zhao and Weidong Chen and Wei Liu and Qing Li and Xudong Mao},
-  year   = {2026}
+  year   = {2026},
+  eprint = {2609.35292},
+  archivePrefix = {arXiv},
+  primaryClass = {cs.CV},
+  url    = {https://arxiv.org/abs/2609.35292}
 }
 ```

@@ -8,7 +8,7 @@
   <meta property="og:title" content="REPI · Scaffold Then Internalize">
   <meta property="og:description" content="Scaffold Then Internalize: Representation Injection for Diffusion Transformers.">
   <meta property="og:type" content="website">
-  <!-- Set og:url and an absolute og:image URL after choosing the public repository. -->
+  <meta property="og:url" content="https://jeneveuxpas.github.io/REPI/">
   <title>REPI | Scaffold Then Internalize</title>
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="styles.css?v=14">
@@ -24,7 +24,7 @@
     </ul>
     <p class="affiliations"><span><sup>1</sup> Sun Yat-sen University</span><span><sup>2</sup> Video Rebirth</span><span><sup>3</sup> The Hong Kong Polytechnic University</span></p>
     <div class="resource-buttons" aria-label="Project links">
-      <span class="button unavailable" aria-disabled="true"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M6 3h8l4 4v14H6z M14 3v5h4 M9 12h6 M9 16h6"/></svg>Paper <small>coming soon</small></span>
+      <a class="button" href="https://arxiv.org/abs/2609.35292" target="_blank" rel="noopener noreferrer"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M6 3h8l4 4v14H6z M14 3v5h4 M9 12h6 M9 16h6"/></svg>Paper <small>arXiv</small></a>
       <a class="button" href="https://github.com/Jeneveuxpas/REPI" target="_blank" rel="noopener"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="m8 6-6 6 6 6 M16 6l6 6-6 6 M14 3l-4 18"/></svg>Code <small>coming soon</small></a>
     </div>
   </section>
@@ -59,7 +59,7 @@
 
   <section class="abstract-band" id="overview"><div class="section wrap overview">
     <div class="section-heading"><h2>Abstract</h2></div>
-    <div class="prose"><p>Recent representation alignment (REPA) methods accelerate diffusion transformer training by aligning projections of the transformer's hidden states with representations from pretrained visual encoders. In this work, we explore a reverse and complementary direction to REPA: rather than projecting diffusion representations into the encoder's space, we inject encoder representations into the diffusion transformer, allowing them to actively participate in the denoising process. To this end, we introduce <em>REPresentation Injection</em> (REPI), a training framework based on a scaffold-to-internalization strategy, in which projected encoder representations initially serve as a temporary scaffold and are then progressively internalized by the diffusion transformer. REPI not only outperforms REPA across a wide range of backbones but is also highly complementary to it, and combining the two yields substantial gains over either alone. Notably, with only 160K training steps, REPI + REPA surpasses vanilla SiT trained for 7M steps, a speedup of over 43.5×.</p></div>
+    <div class="prose"><p>Recent representation alignment (REPA) methods accelerate diffusion transformer training by aligning projections of the transformer's hidden states with representations from pretrained visual encoders. In this work, we explore a reverse and complementary direction to REPA: rather than projecting diffusion representations into the encoder's space, we inject encoder representations into the diffusion transformer, allowing them to actively participate in the denoising process. To this end, we introduce <em>REPresentation Injection</em> (REPI), a training framework based on a scaffold-to-internalization strategy, in which projected encoder representations initially serve as a temporary scaffold and are then progressively internalized by the diffusion transformer. REPI outperforms REPA across a wide range of backbones and is highly complementary to it: combining the two yields substantial gains over either alone. Notably, with only 160K training steps, REPI + REPA matches vanilla SiT trained for 7M steps, a speedup of over 43.5×.</p></div>
   </div></section>
 
   <section class="tinted" id="method">
@@ -93,7 +93,11 @@
     <pre class="bibtex"><code>@misc{fu2026scaffold,
   title  = {Scaffold Then Internalize: Representation Injection for Diffusion Transformers},
   author = {Han Fu and Jiacheng Chen and Baoquan Zhao and Weidong Chen and Wei Liu and Qing Li and Xudong Mao},
-  year   = {2026}
+  year   = {2026},
+  eprint = {2609.35292},
+  archivePrefix = {arXiv},
+  primaryClass = {cs.CV},
+  url    = {https://arxiv.org/abs/2609.35292}
 }</code></pre>
   </div></section>
 </main>
